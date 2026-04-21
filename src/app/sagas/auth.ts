@@ -35,6 +35,8 @@ export function* userLoginAsync(action: {
   }
 }
 
+// Watcher saga to listen for USER_LOGIN actions and trigger the userLoginAsync worker saga.
+
 export function* userLogin() {
   yield takeLatest(USER_LOGIN, userLoginAsync);
 }
