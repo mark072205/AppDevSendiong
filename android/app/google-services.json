@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "443052786013",
+    "project_id": "sendiong-appdev",
+    "storage_bucket": "sendiong-appdev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443052786013:android:30fd8669985e4a630e28b4",
+        "android_client_info": {
+          "package_name": "com.sendiong"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgItbDwY3hr_61CBR-Rr67Q4-lyg6enlk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
