@@ -10,6 +10,8 @@ type Props = {
   disabled?: boolean;
 };
 
+//CustomButton component with disabled state and activeOpacity handling
+
 function CustomButton({ containerStyle, textStyle, label, onPress, disabled }: Props): ReactElement {
   return (
     <View style={containerStyle}>

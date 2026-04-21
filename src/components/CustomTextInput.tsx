@@ -2,6 +2,8 @@ import type { ReactElement, ReactNode } from 'react';
 import { Text, TextInput, View } from 'react-native';
 import type { StyleProp, TextInputProps, TextStyle, ViewStyle } from 'react-native';
 
+// CustomTextInput component with optional label, left icon, and styling props
+
 type Props = {
   label?: string;
   placeholder?: string;
