@@ -13,6 +13,8 @@ function stringish(value: unknown): string | undefined {
   return undefined;
 }
 
+//API auth
+
 function loginErrorMessageFromBody(data: unknown): string {
   const d =
     data && typeof data === 'object' ? (data as Record<string, unknown>) : undefined;

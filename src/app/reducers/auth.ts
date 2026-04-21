@@ -1,5 +1,7 @@
 import type { UnknownAction } from 'redux';
 
+//Reducer for authentication state, handling login requests, successes, errors, and reset actions.
+
 import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_COMPLETE,
