@@ -9,6 +9,8 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import type { AuthStackParamList } from '../../types/navigation';
 import ROUTES from '../../utils/routes';
 
+//ErrorScreen component to display error messages with a "Try again" button that resets the auth state and navigates back to the login screen. It uses route parameters for dynamic error titles and messages, and falls back to default values if not provided.
+
 type ErrorRoute = RouteProp<AuthStackParamList, typeof ROUTES.ERRORSCREEN>;
 type ErrorNav = StackNavigationProp<AuthStackParamList, typeof ROUTES.ERRORSCREEN>;
 
