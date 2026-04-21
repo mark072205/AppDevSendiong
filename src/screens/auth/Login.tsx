@@ -23,6 +23,8 @@ import { IMG, ROUTES } from '../../utils';
 const iconColor = '#6c757d';
 const LOGIN_TOP_PADDING = 80;
 
+//Improved Login screen with better error handling, loading state, and user feedback.
+
 type LoginNav = StackNavigationProp<AuthStackParamList, typeof ROUTES.LOGIN>;
 
 function Login(): ReactElement {
