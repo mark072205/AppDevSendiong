@@ -19,8 +19,6 @@ function AuthNavigation() {
         }}
       />
 
-//Addition of ErrorScreen to the AuthNavigation stack, allowing for better error handling and user feedback during the authentication process. The ErrorScreen is configured to hide the header for a cleaner look when displaying error messages.
-
       <Stack.Screen name={ROUTES.REGISTER} component={Register} />
       <Stack.Screen
         name={ROUTES.ERRORSCREEN}
@@ -31,4 +29,4 @@ function AuthNavigation() {
   );
 }
 
-export default AuthNavigation;
+export default AuthNavigation;gi
