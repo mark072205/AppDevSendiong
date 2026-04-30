@@ -29,4 +29,4 @@ function AuthNavigation() {
   );
 }
 
-export default AuthNavigation;gi
+export default AuthNavigation;

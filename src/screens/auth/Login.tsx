@@ -13,11 +13,12 @@ import {
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import { authLogin } from '../../app/actions';
+import { authLogin, USER_LOGIN_COMPLETE, USER_LOGIN_ERROR, USER_LOGIN_REQUEST } from '../../app/actions';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import CustomButton from '../../components/CustomButton';
 import CustomTextInput from '../../components/CustomTextInput';
 import type { AuthStackParamList } from '../../types/navigation';
+import { signInWithGoogle } from '../../utils/firebase';
 import { IMG, ROUTES } from '../../utils';
 
 const iconColor = '#6c757d';
@@ -53,6 +54,28 @@ function Login(): ReactElement {
       return;
     }
     dispatch(authLogin({ username, password }));
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      dispatch({ type: USER_LOGIN_REQUEST });
+      const result = await signInWithGoogle();
+
+      if (!result) {
+        return;
+      }
+
+      dispatch({
+        type: USER_LOGIN_COMPLETE,
+        payload: result.userInfo,
+      });
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Google sign-in failed';
+      dispatch({
+        type: USER_LOGIN_ERROR,
+        error: message,
+      });
+    }
   };
 
   return (
@@ -112,6 +135,25 @@ function Login(): ReactElement {
             fontSize: 16,
           }}
           onPress={handleContinue}
+          disabled={auth.isLoading}
+        />
+        <CustomButton
+          label="Continue with Google"
+          containerStyle={{
+            backgroundColor: '#ffffff',
+            borderRadius: 8,
+            marginBottom: 24,
+            width: '100%',
+            borderWidth: 1,
+            borderColor: '#d1d5db',
+            overflow: 'hidden',
+          }}
+          textStyle={{
+            color: '#111827',
+            fontWeight: '600',
+            fontSize: 16,
+          }}
+          onPress={handleGoogleSignIn}
           disabled={auth.isLoading}
         />
 
