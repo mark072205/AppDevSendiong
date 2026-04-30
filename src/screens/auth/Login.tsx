@@ -18,6 +18,7 @@ import { authLogin, USER_LOGIN_COMPLETE, USER_LOGIN_ERROR, USER_LOGIN_REQUEST } 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import CustomButton from '../../components/CustomButton';
 import CustomTextInput from '../../components/CustomTextInput';
+import { showError } from '../../components/alert_message';
 import type { AuthStackParamList } from '../../types/navigation';
 import { signInWithGoogle } from '../../utils/firebase';
 import { IMG, ROUTES } from '../../utils';
@@ -39,17 +40,17 @@ function Login(): ReactElement {
 
   useEffect(() => {
     if (!auth.isLoading && auth.isError && auth.error) {
-      navigation.navigate(ROUTES.ERRORSCREEN, {
+      showError({
         title: 'Login failed',
         message: auth.error,
       });
     }
-  }, [auth.isLoading, auth.isError, auth.error, navigation]);
+  }, [auth.isLoading, auth.isError, auth.error]);
 
   const handleContinue = () => {
     if (username === '' || password === '') {
-      navigation.navigate(ROUTES.ERRORSCREEN, {
-        title: 'Invalid Credentials',
+      showError({
+        title: 'Invalid credentials',
         message: 'Please enter username or email and password',
       });
       return;

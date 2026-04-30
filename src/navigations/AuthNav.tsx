@@ -1,6 +1,5 @@
 import { createStackNavigator } from '@react-navigation/stack';
 
-import ErrorScreen from '../screens/auth/ErrorScreen';
 import Login from '../screens/auth/Login';
 import Register from '../screens/auth/Register';
 import type { AuthStackParamList } from '../types/navigation';
@@ -20,11 +19,6 @@ function AuthNavigation() {
       />
 
       <Stack.Screen name={ROUTES.REGISTER} component={Register} />
-      <Stack.Screen
-        name={ROUTES.ERRORSCREEN}
-        component={ErrorScreen}
-        options={{ headerShown: false }}
-      />
     </Stack.Navigator>
   );
 }
