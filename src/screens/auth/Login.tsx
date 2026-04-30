@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import type { ReactElement } from 'react';
 import { useEffect, useState } from 'react';
+import { GoogleSigninButton } from '@react-native-google-signin/google-signin';
 import {
   Image,
   KeyboardAvoidingView,
@@ -125,7 +126,7 @@ function Login(): ReactElement {
           containerStyle={{
             backgroundColor: auth.isLoading ? '#6b7ba8' : '#1e3a8a',
             borderRadius: 8,
-            marginBottom: 32,
+            marginBottom: 20,
             width: '100%',
             overflow: 'hidden',
           }}
@@ -137,25 +138,33 @@ function Login(): ReactElement {
           onPress={handleContinue}
           disabled={auth.isLoading}
         />
-        <CustomButton
-          label="Continue with Google"
-          containerStyle={{
-            backgroundColor: '#ffffff',
-            borderRadius: 8,
+
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginBottom: 20,
+          }}
+        >
+          <View style={{ flex: 1, height: 1, backgroundColor: '#d1d5db' }} />
+          <Text style={{ marginHorizontal: 12, color: '#6b7280', fontSize: 14 }}>or</Text>
+          <View style={{ flex: 1, height: 1, backgroundColor: '#d1d5db' }} />
+        </View>
+
+        <View
+          style={{
             marginBottom: 24,
-            width: '100%',
-            borderWidth: 1,
-            borderColor: '#d1d5db',
-            overflow: 'hidden',
+            alignItems: 'center',
           }}
-          textStyle={{
-            color: '#111827',
-            fontWeight: '600',
-            fontSize: 16,
-          }}
-          onPress={handleGoogleSignIn}
-          disabled={auth.isLoading}
-        />
+        >
+          <GoogleSigninButton
+            style={{ width: '100%', height: 48, borderRadius: 8 }}
+            size={GoogleSigninButton.Size.Wide}
+            color={GoogleSigninButton.Color.Light}
+            onPress={handleGoogleSignIn}
+            disabled={auth.isLoading}
+          />
+        </View>
 
         <View
           style={{
